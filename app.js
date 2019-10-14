@@ -1,8 +1,8 @@
 const app = angular.module('app', [])
 
 app.controller('MyController', function ($scope) {
-  $scope.message = 'Hello'
-  $scope.onMessageChange = (message) => {
+  $scope.outerMessage = 'Hello'
+  $scope.outerOnMessageChange = (message) => {
     console.log("Message changed to:", message);
   }
 })
@@ -10,7 +10,7 @@ app.controller('MyController', function ($scope) {
 app.component('helloComponent', {
   template: `
     <div>
-        Message: <input type="text" ng-model="$ctrl.message" ng-change="$ctrl.onMessageChange($ctrl.message)"/>
+        Component Message: <input type="text" ng-model="$ctrl.message" ng-change="$ctrl.onMessageChange($ctrl.message)"/>
     </div>
     `,
   bindings: {
